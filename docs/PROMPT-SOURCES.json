@@ -1,9 +1,9 @@
 {
   "navigation": {
     "file": "src/designer/designer-navigation.md",
-    "version": "0.1",
+    "version": "0.1.1",
     "observedOn": "2026-11-19",
-    "sha256": "a31175f4483e2f9691929300c56f80ab3ae196f2b4ea3e0491a03bff12091d52"
+    "sha256": "47b491a7eefa0ca01ea237d136a593f98579d51559c5022ded0361ba8ed918b3"
   },
   "expert": {
     "file": "src/designer/survey-solutions-master.md",

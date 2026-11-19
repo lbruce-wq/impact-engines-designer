@@ -1,4 +1,4 @@
-Impact Engines Designer — prototype
+Survey Solutions AI Plugin — beta
 Copyright 2026 Impact Engines for original additions and modifications.
 
 This product is derived from NanoBrowser:
@@ -9,7 +9,7 @@ the Apache License, Version 2.0. The original LICENSE is retained unchanged.
 
 Modified by Impact Engines on 19 November 2026: application branding and UI,
 Survey Solutions expert/navigation instructions and prompt assembly, starter
-tasks, prototype documentation, telemetry defaults/destination, rating prompts,
+tasks, beta documentation, telemetry defaults/destination, rating prompts,
 website links and uninstall behavior. See MODIFICATIONS.md for changed files.
 
 Survey Solutions AI Agent Prompt
@@ -24,4 +24,7 @@ licenses/third-party-licenses.txt. See Settings → About for source links.
 
 Impact Engines brand artwork is supplied by Impact Engines. The Apache licence
 does not grant rights to Impact Engines names, trademarks or logo artwork.
-This prototype is not affiliated with or endorsed by the World Bank or NanoBrowser.
+This beta is not affiliated with or endorsed by the World Bank or NanoBrowser.
+
+20 November 2026: product renamed Survey Solutions AI Plugin and product-title styling aligned with surveysolutions.impactengines.ai. Copyright and licence attribution retained.
+Release status: Beta. Shared Survey Solutions AI Terms of use link added to the interface and documentation.

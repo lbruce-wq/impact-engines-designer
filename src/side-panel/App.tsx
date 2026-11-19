@@ -35,6 +35,9 @@ import { useShortcuts } from '@src/ui/shortcuts';
 import { AutoNotice } from '@src/ui/auto-notice';
 import { HistoryIcon, Logo, LogoMark, NewChatIcon, SettingsIcon } from '@src/ui/icons';
 import { websiteUrl } from '@src/ui/links';
+import { ProductName } from '@src/ui/ProductName';
+import { TermsLink } from '@src/ui/TermsLink';
+import { PRODUCT } from '@src/designer/product';
 
 const NO_PROVIDERS: ProviderConfig[] = [];
 const NO_KEYS: Record<string, string> = {};
@@ -390,9 +393,11 @@ export function App() {
           <SettingsIcon />
         </IconButton>
       </header>
-      <div className="ie-product-strip flex items-center justify-between gap-2 px-4 py-2 text-xs">
-        <span className="font-semibold">Survey Solutions Designer</span>
-        <span className="ie-prototype-badge">Prototype</span>
+      <div className="ie-product-strip flex items-center justify-between gap-2 px-4 py-2 text-sm">
+        <span className="font-semibold">
+          <ProductName />
+        </span>
+        <span className="ie-release-badge">{PRODUCT.channel}</span>
       </div>
       {confirmNewChat ? (
         <div className="flex items-center gap-2 border-b border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100">
@@ -603,6 +608,9 @@ export function App() {
         onModel={next => choose({ model: next, reasoning })}
         onReasoning={next => model && choose({ model, reasoning: next })}
       />
+      <footer className="flex justify-center px-3 pb-2 pt-1 text-xs text-nb-muted">
+        <TermsLink />
+      </footer>
     </div>
   );
 }

@@ -1,16 +1,18 @@
-# Impact Engines Designer
+# Survey Solutions AI Plugin
+
+**Beta · v0.1.1**
 
 Modified by Impact Engines, 19 November 2026. The original upstream README is retained in `docs/upstream-README.md`.
 
-A first prototype assistant for Survey Solutions Designer, built on [NanoBrowser](https://github.com/nanobrowser/nanobrowser). It combines Impact Engines' Survey Solutions programming prompt with a guide developed through live Designer interface testing.
+A first beta assistant for Survey Solutions Designer, built on [NanoBrowser](https://github.com/nanobrowser/nanobrowser). It combines Impact Engines' Survey Solutions programming prompt with a guide developed through live Designer interface testing.
 
 The extension uses your selected model provider and your logged-in browser. It can inspect questions, explain logic, propose and apply edits, use roster context menus, and check compilation results. Dragging is handed back to you. Real LLM performance is still being evaluated; use a disposable questionnaire copy.
 
-![Impact Engines Designer panel](docs/screenshots/panel-light.png)
+![Survey Solutions AI Plugin panel](docs/screenshots/panel-light.png)
 
-## Install the prototype
+## Install the beta
 
-1. Build from source below, or extract the supplied `impact-engines-designer-0.1.0.zip`.
+1. Build from source below, or extract the supplied `survey-solutions-ai-plugin-0.1.1.zip`.
 2. In Chrome, open `chrome://extensions` and enable Developer mode. In Edge, use `edge://extensions`.
 3. Choose **Load unpacked** and select the `dist` folder, or the extracted ZIP folder containing `manifest.json`.
 4. In the welcome/settings page, connect a tool-capable model using your own provider key. Use a model with **64k or more context**. Keys are entered in the extension, not committed into the source.
@@ -46,7 +48,7 @@ The unpacked extension is written to `dist/`; the ZIP is written to `dist-zip/`.
 - Production telemetry, upstream store-rating prompts and the upstream uninstall survey disabled.
 - Bundled Apache, prompt MIT, Inter OFL and installed third-party licence/notice texts, with attribution in Settings → About.
 
-The [modification record](MODIFICATIONS.md) names changed upstream files. NanoBrowser's original [README](docs/upstream-README.md) and [privacy document](docs/upstream-PRIVACY.md) are retained as historical references; the [prototype privacy policy](PRIVACY.md) describes this fork.
+The [modification record](MODIFICATIONS.md) names changed upstream files. NanoBrowser's original [README](docs/upstream-README.md) and [privacy document](docs/upstream-PRIVACY.md) are retained as historical references; the [beta privacy policy](PRIVACY.md) describes this fork.
 
 ## Checks
 
@@ -61,8 +63,12 @@ Development verification: 945 unit tests passed, 6 opt-in/live tests skipped; br
 
 ## Limits and privacy
 
-The inherited manifest still has broad host/debugger permissions; Designer-only origin enforcement is not yet implemented. Questionnaire content and messages go to the model provider you choose. Cached input still occupies context, and provider caches do not guarantee lower latency or cost on every request. This prototype does not provide subscriptions, an account backend, PDF/Word ingestion, bulk questionnaire generation or automatic drag-and-drop.
+The inherited manifest still has broad host/debugger permissions; Designer-only origin enforcement is not yet implemented. Questionnaire content and messages go to the model provider you choose. Cached input still occupies context, and provider caches do not guarantee lower latency or cost on every request. This beta does not provide subscriptions, an account backend, PDF/Word ingestion, bulk questionnaire generation or automatic drag-and-drop.
 
-## Attribution and licensing
+## Terms of use
+
+Use the same [Survey Solutions AI Terms of use / User Agreement](https://impactengines.ai/survey-solutions-ai-agent-user-agreement/) linked by the [Survey Solutions AI web assistant](https://surveysolutions.impactengines.ai/). This link is also available in the plugin footer, onboarding, settings and About page. Open-source copyright and licence notices are provided separately below.
+
+## Open-source notices
 
 NanoBrowser code remains under Apache-2.0; the original [LICENSE](LICENSE) is unchanged. The Survey Solutions master prompt is MIT licensed, and Inter uses the SIL Open Font License. Read [NOTICE](NOTICE) and the bundled `public/licenses/` texts for the relevant notices. Impact Engines logos and trademarks remain Impact Engines property and are not licensed by the Apache grant. This project is not affiliated with or endorsed by the World Bank or NanoBrowser.

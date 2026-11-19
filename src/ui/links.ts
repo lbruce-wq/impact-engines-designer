@@ -5,3 +5,6 @@
 /** A page of the website (`/docs` is the help pages), tagged with the place that links to it. */
 export const websiteUrl = (path: '/' | '/docs', _place: 'side-panel' | 'settings' | 'about') =>
   path === '/docs' ? 'https://docs.mysurvey.solutions/' : 'https://impactengines.ai/';
+
+/** The same Terms of use destination linked by the Survey Solutions AI web assistant. */
+export const TERMS_URL = 'https://impactengines.ai/survey-solutions-ai-agent-user-agreement/';

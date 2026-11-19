@@ -15,6 +15,8 @@ import { DataSection } from './DataSection';
 import { AboutSection } from './AboutSection';
 import { Logo } from '@src/ui/icons';
 import { websiteUrl } from '@src/ui/links';
+import { ProductName } from '@src/ui/ProductName';
+import { TermsLink } from '@src/ui/TermsLink';
 
 const SECTIONS: Array<{ id: string; label: MessageKey; render: () => JSX.Element }> = [
   { id: 'general', label: 'settings.nav.general', render: () => <GeneralSection /> },
@@ -58,8 +60,11 @@ export function App() {
         <header className="ie-brand-header mb-6 rounded-lg p-5 sm:mb-10">
           <h1 className="flex flex-wrap items-center gap-x-3 gap-y-2 font-serif text-xl font-normal leading-tight sm:text-[28px]">
             <Logo slate height={40} />
-            <span>{t('settings.title')}</span>
+            <span className="ie-product-divider text-lg">
+              <ProductName />
+            </span>
           </h1>
+          <p className="mt-3 text-sm">{t('settings.title')}</p>
         </header>
         <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
           <nav
@@ -89,6 +94,9 @@ export function App() {
           </nav>
           <main className="min-w-0 max-w-4xl flex-1">{active.render()}</main>
         </div>
+        <footer className="mt-8 text-center text-xs text-nb-muted">
+          <TermsLink />
+        </footer>
       </div>
     </div>
   );

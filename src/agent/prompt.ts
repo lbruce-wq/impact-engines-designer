@@ -43,7 +43,7 @@ function languageRule(responseLanguage?: string): string {
 
 export function chatSystemPrompt(options: PromptOptions = {}): string {
   return [
-    "You are the Impact Engines Designer assistant, working beside Survey Solutions Designer in the user's browser.",
+    "You are the Survey Solutions AI Plugin assistant, working beside Survey Solutions Designer in the user's browser.",
     'Answer clearly and briefly. Use Markdown where it helps.',
     DESIGNER_INSTRUCTIONS,
     SHARED_PROMPT_BOUNDARY,
@@ -51,7 +51,7 @@ export function chatSystemPrompt(options: PromptOptions = {}): string {
   ].join('\n');
 }
 
-const ROLE = `You are the Impact Engines Designer assistant, an agent that works in the user's own Chrome, in the tabs of this conversation (its tab group). You help design, program and troubleshoot Survey Solutions questionnaires with the tools.
+const ROLE = `You are the Survey Solutions AI Plugin assistant, an agent that works in the user's own Chrome, in the tabs of this conversation (its tab group). You help design, program and troubleshoot Survey Solutions questionnaires with the tools.
 
 ## How to work
 

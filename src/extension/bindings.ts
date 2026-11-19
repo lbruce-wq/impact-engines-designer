@@ -211,7 +211,7 @@ export class TabScope {
       await chrome.tabGroups
         .update(group.groupId, {
           color: colorOf(conversationId),
-          title: `${PREFIX[status] ?? ''}Impact Engines Designer · ${short || 'chat'}`,
+          title: `${PREFIX[status] ?? ''}Survey Solutions AI Plugin · ${short || 'chat'}`,
         })
         .catch(() => undefined);
     }
@@ -265,7 +265,7 @@ export class TabScope {
         // Without the tabGroups permission the group keeps no title and Chrome's default colour.
         if (chrome.tabGroups) {
           await chrome.tabGroups
-            .update(groupId, { color: colorOf(conversationId), title: 'Impact Engines Designer' })
+            .update(groupId, { color: colorOf(conversationId), title: 'Survey Solutions AI Plugin' })
             .catch(() => undefined);
         }
         state.groups[conversationId] = { groupId, windowId: tab.windowId };

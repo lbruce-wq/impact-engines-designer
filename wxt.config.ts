@@ -27,6 +27,7 @@ export default defineConfig({
     default_locale: 'en',
     minimum_chrome_version: '125',
     homepage_url: 'https://impactengines.ai/',
+    version_name: '0.1.1 Beta',
     host_permissions: ['<all_urls>'],
     ...permissionLists(productPermissions ? 'product' : 'autorun'),
     action: { default_icon: 'icon-32.png', default_title: '__MSG_actionTitle__' },
@@ -38,7 +39,7 @@ export default defineConfig({
   },
   // `pnpm zip` packs dist/ into dist-zip/, outside the folder Chrome loads.
   zip: {
-    artifactTemplate: '../dist-zip/impact-engines-designer-{{version}}.zip',
+    artifactTemplate: '../dist-zip/survey-solutions-ai-plugin-{{version}}.zip',
     exclude: ['**/*.map'],
   },
   hooks: {

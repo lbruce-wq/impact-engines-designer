@@ -61,3 +61,9 @@ Upstream base: `291d5f3927ee4c4795b0ea4588f2b404838b3ff6`. The original Apache 2
 New files under src/designer, src/llm/prompt-cache.ts, scripts, docs and public provide the new instructions, tests, original product glyph, brand assets, fonts, privacy page and licence notices. Toolbar PNG replacements are described in public/brand/ASSET-NOTICES.txt. Source comments, JSON metadata and this record identify modifications.
 
 The small-context engine stress tests omit the product guides to preserve their original stress conditions; the full product guides are independently exercised by the 64k multi-turn test. UI assertions were updated for the product identity and first-run validation shortcut.
+
+## Product naming — 20 November 2026
+
+Renamed the visible product to Survey Solutions AI Plugin, matching the product-title treatment at https://surveysolutions.impactengines.ai/. Updated extension/localised labels, page titles, onboarding, notifications, assistant identity, package name/version and archive name. Existing Impact Engines artwork, copyright attribution, storage keys and repository URL are retained. The internal cache routing key stays stable; the revised assistant identity naturally changes the cached prefix once. Version 0.1.1.
+
+The release is labelled Beta throughout the active UI, privacy copy and documentation. Terms of use links point to the same Survey Solutions AI User Agreement used by the hosted assistant; open-source notices remain separate.

@@ -1,4 +1,4 @@
-# Prototype test record
+# Beta test record
 
 19 November 2026.
 
@@ -24,4 +24,8 @@ The six skipped unit tests are inherited opt-in/live tests; the default suite do
 6. Request a reorder. Check that the agent hands over the drag and verifies the result after you finish.
 7. Inspect **Model usage** over several turns to measure provider cache reads and writes.
 
-Use the original project's twenty-task Designer replay suite for broader evaluation. Real LLM performance, actual provider cache hits, long questionnaires and production deployment remain unverified. This is a local prototype, not a store release.
+Use the original project's twenty-task Designer replay suite for broader evaluation. Real LLM performance, actual provider cache hits, long questionnaires and production deployment remain unverified. This is a local beta, not a store release.
+
+## Beta naming and legal links — 20 November 2026
+
+The release is now Survey Solutions AI Plugin, labelled Beta (v0.1.1), with the same Terms of use destination as https://surveysolutions.impactengines.ai/. The link is https://impactengines.ai/survey-solutions-ai-agent-user-agreement/ and is available in the main panel, onboarding, settings/About, README and privacy documentation.

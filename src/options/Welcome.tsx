@@ -20,6 +20,8 @@ import { SettingsCard, SettingsRow } from './SettingsCard';
 import { BrowserFeaturesRow } from './BrowserFeaturesCard';
 import { listProblem, testModel } from './model-test';
 import { EdgeExtensionsIcon, ExtensionsIcon, Logo, PinIcon, SlantedPinIcon } from '@src/ui/icons';
+import { ProductName } from '@src/ui/ProductName';
+import { TermsLink } from '@src/ui/TermsLink';
 
 const STEPS: MessageKey[] = ['welcome.step.welcome', 'welcome.step.model', 'tips.title'];
 const NO_PROVIDERS: ProviderConfig[] = [];
@@ -52,8 +54,11 @@ export function Welcome() {
   return (
     <div className="nb-wave min-h-full">
       <div className="mx-auto flex min-h-full max-w-2xl flex-col gap-6 p-6 sm:pt-12">
-        <div className="ie-brand-header -mx-6 -mt-6 p-6 sm:-mt-12">
+        <div className="ie-brand-header -mx-6 -mt-6 flex flex-wrap items-center gap-4 p-6 sm:-mt-12">
           <Logo slate height={44} />
+          <span className="ie-product-divider text-base">
+            <ProductName />
+          </span>
         </div>
         <h1 className="font-serif text-[28px] font-normal leading-tight">{t('welcome.title')}</h1>
         <ol aria-label={t('welcome.steps')} className="flex flex-wrap gap-1">
@@ -94,6 +99,9 @@ export function Welcome() {
             </Button>
           )}
         </div>
+        <footer className="text-center text-xs text-nb-muted">
+          <TermsLink />
+        </footer>
       </div>
     </div>
   );
@@ -401,7 +409,7 @@ function TipsStep() {
       <SettingsCard>
         <BrowserFeaturesRow />
       </SettingsCard>
-      <Notice>Prototype telemetry is disabled. Questionnaire content goes to the model provider you select.</Notice>
+      <Notice>Beta telemetry is disabled. Questionnaire content goes to the model provider you select.</Notice>
     </>
   );
 }

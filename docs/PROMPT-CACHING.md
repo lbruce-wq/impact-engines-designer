@@ -1,4 +1,4 @@
-# Prompt caching in the prototype
+# Prompt caching in the beta
 
 The long expert and navigation guides form a stable, application-owned prefix. They are included once in the system instructions for each request, not copied into tool results or appended repeatedly to conversation history.
 
@@ -16,8 +16,8 @@ Dates embedded in the versioned documents are build-time constants. Current time
 
 - **Anthropic:** an explicit ephemeral cache breakpoint is attached to the system block ending at the shared-prefix boundary. NanoBrowser's existing automatic request caching remains enabled, allowing later conversation reuse as supported by the API. No longer TTL is forced.
 - **OpenAI:** shared instructions are leading developer messages in Responses API `input`, rather than top-level `instructions`. A stable `impact-engines-designer-v0.1` routing/accounting key is sent. Response storage remains disabled. No extended retention or explicit paid-write policy is forced.
-- **Gemini:** the stable system instruction and ordered messages are eligible for the provider's implicit caching where the selected model supports it. The prototype does not create paid explicit cached-content resources.
-- **Other providers/local models:** the same stable-prefix layout is retained. Their caching support depends on the endpoint; the prototype does not claim provider-independent cache guarantees.
+- **Gemini:** the stable system instruction and ordered messages are eligible for the provider's implicit caching where the selected model supports it. The beta does not create paid explicit cached-content resources.
+- **Other providers/local models:** the same stable-prefix layout is retained. Their caching support depends on the endpoint; the beta does not claim provider-independent cache guarantees.
 
 These choices follow the current [OpenAI caching guide](https://developers.openai.com/api/docs/guides/prompt-caching), [AI SDK Anthropic provider documentation](https://ai-sdk.dev/providers/ai-sdk-providers/anthropic), and [AI SDK Google provider documentation](https://ai-sdk.dev/providers/ai-sdk-providers/google). The installed SDK's actual request serializers are covered by mocked wire tests.
 

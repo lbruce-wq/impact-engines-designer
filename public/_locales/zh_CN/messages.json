@@ -1,18 +1,18 @@
 {
   "extName": {
-    "message": "Impact Engines Designer"
+    "message": "Survey Solutions AI Plugin"
   },
   "extDescription": {
-    "message": "用于 Survey Solutions Designer 的 Impact Engines 原型助手。"
+    "message": "Survey Solutions AI Plugin — 用于 Survey Solutions Designer 的 Impact Engines 测试版助手。"
   },
   "actionTitle": {
-    "message": "打开 Impact Engines Designer"
+    "message": "打开 Survey Solutions AI Plugin"
   },
   "commandOpenPanel": {
-    "message": "打开 Impact Engines Designer 侧边栏"
+    "message": "打开 Survey Solutions AI Plugin 侧边栏"
   },
   "menuAskAboutSelection": {
-    "message": "向 Impact Engines Designer 询问这段内容"
+    "message": "向 Survey Solutions AI Plugin 询问这段内容"
   },
   "impactEnginesModification": {
     "message": "Modified by Impact Engines, 19 November 2026."

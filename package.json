@@ -1,8 +1,8 @@
 {
-  "name": "impact-engines-designer",
-  "version": "0.1.0",
+  "name": "survey-solutions-ai-plugin",
+  "version": "0.1.1",
   "private": true,
-  "description": "Impact Engines prototype assistant for Survey Solutions Designer",
+  "description": "Survey Solutions AI Plugin — an Impact Engines beta assistant for Survey Solutions Designer",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -83,5 +83,5 @@
       "postcss-selector-parser": "^7.1.6"
     }
   },
-  "x-impact-engines-modification": "Modified by Impact Engines, 19 November 2026; see NOTICE and MODIFICATIONS.md"
+  "x-impact-engines-modification": "Modified by Impact Engines, 19–20 November 2026; see NOTICE and MODIFICATIONS.md"
 }

@@ -1,18 +1,18 @@
 {
   "extName": {
-    "message": "Impact Engines Designer"
+    "message": "Survey Solutions AI Plugin"
   },
   "extDescription": {
-    "message": "An Impact Engines prototype assistant for Survey Solutions Designer."
+    "message": "Survey Solutions AI Plugin — an Impact Engines beta assistant for Survey Solutions Designer."
   },
   "actionTitle": {
-    "message": "Open Impact Engines Designer"
+    "message": "Open Survey Solutions AI Plugin"
   },
   "commandOpenPanel": {
-    "message": "Open the Impact Engines Designer panel"
+    "message": "Open the Survey Solutions AI Plugin panel"
   },
   "menuAskAboutSelection": {
-    "message": "Ask Impact Engines Designer about this"
+    "message": "Ask Survey Solutions AI Plugin about this"
   },
   "impactEnginesModification": {
     "message": "Modified by Impact Engines, 19 November 2026."

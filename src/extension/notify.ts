@@ -9,12 +9,12 @@ import type { OpenPrompt } from '@src/ui/protocol';
 const tabOfNotification = new Map<string, number>();
 
 const NEEDS: Record<string, (site: string) => string> = {
-  'write-card': site => `Impact Engines Designer asks before it changes something on ${site}.`,
-  handover: site => `Impact Engines Designer needs you: a step on ${site} is yours to do.`,
-  'ask-takeover': site => `Impact Engines Designer needs you to do a step on ${site}.`,
-  'ask-input': () => 'Impact Engines Designer has a question for you.',
-  'save-file': () => 'Impact Engines Designer asks before it saves a file.',
-  confirm: () => 'Impact Engines Designer has a question for you.',
+  'write-card': site => `Survey Solutions AI Plugin asks before it changes something on ${site}.`,
+  handover: site => `Survey Solutions AI Plugin needs you: a step on ${site} is yours to do.`,
+  'ask-takeover': site => `Survey Solutions AI Plugin needs you to do a step on ${site}.`,
+  'ask-input': () => 'Survey Solutions AI Plugin has a question for you.',
+  'save-file': () => 'Survey Solutions AI Plugin asks before it saves a file.',
+  confirm: () => 'Survey Solutions AI Plugin has a question for you.',
 };
 
 async function siteOfTab(tabId: number | undefined): Promise<string> {
@@ -32,7 +32,7 @@ export async function notifyNeeds(prompt: OpenPrompt, fallbackTab: number | unde
 export async function notifyFinished(conversationId: string, ok: boolean, tabId: number | undefined): Promise<void> {
   await show(
     `done-${conversationId}`,
-    ok ? 'Impact Engines Designer finished the task.' : 'Impact Engines Designer stopped before finishing.',
+    ok ? 'Survey Solutions AI Plugin finished the task.' : 'Survey Solutions AI Plugin stopped before finishing.',
     tabId,
   );
 }
@@ -44,7 +44,7 @@ async function show(id: string, message: string, tabId: number | undefined): Pro
     .create(id, {
       type: 'basic',
       iconUrl: chrome.runtime.getURL('/icon-128.png'),
-      title: 'Impact Engines Designer',
+      title: 'Survey Solutions AI Plugin',
       message,
     })
     .catch(() => undefined);
