@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // Small shared components for the panel and the settings page. Page and model strings are only ever rendered as
 // text nodes here, never as HTML.
 import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react';
@@ -5,8 +6,7 @@ import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, SelectHTMLAt
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger';
 
 const variants: Record<Variant, string> = {
-  primary:
-    'bg-nb-accent font-medium text-white shadow-sm hover:bg-nb-accent-strong disabled:opacity-50 disabled:hover:bg-nb-accent',
+  primary: 'ie-primary font-semibold shadow-sm disabled:opacity-50',
   secondary:
     'border border-nb-border bg-nb-bg shadow-sm hover:border-nb-accent/40 hover:bg-nb-surface disabled:opacity-50',
   ghost: 'hover:bg-nb-surface disabled:opacity-50',

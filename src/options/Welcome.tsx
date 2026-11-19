@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The first run: the welcome page, opened when the extension is installed. Three steps: what Nanobrowser does with a
 // coach mark for Chrome's pin button; choosing a model (local or cloud, or Set it later); and three tips for safe use,
 // with a row that allows the browser features.
@@ -9,7 +10,7 @@ import type { ModelList, ProviderKind } from '@src/llm';
 import { newId } from '@src/store/conversations';
 import { DEFAULT_SETTINGS, findModel, keysStorage, providersStorage, settingsStorage } from '@src/store/settings';
 import type { ModelEntry, ProviderConfig } from '@src/store/settings';
-import { Button, Input, Notice, Select, Switch } from '@src/ui/components';
+import { Button, Input, Notice, Select } from '@src/ui/components';
 import { useStorage } from '@src/ui/hooks';
 import { setLanguage, t, useLanguage } from '@src/ui/i18n';
 import type { MessageKey } from '@src/ui/i18n';
@@ -51,7 +52,9 @@ export function Welcome() {
   return (
     <div className="nb-wave min-h-full">
       <div className="mx-auto flex min-h-full max-w-2xl flex-col gap-6 p-6 sm:pt-12">
-        <Logo height={30} className="self-start" />
+        <div className="ie-brand-header -mx-6 -mt-6 p-6 sm:-mt-12">
+          <Logo slate height={44} />
+        </div>
         <h1 className="font-serif text-[28px] font-normal leading-tight">{t('welcome.title')}</h1>
         <ol aria-label={t('welcome.steps')} className="flex flex-wrap gap-1">
           {STEPS.map((label, i) => (
@@ -383,7 +386,6 @@ const TIPS: Array<{ title: MessageKey; body: MessageKey }> = [
 ];
 
 function TipsStep() {
-  const settings = useStorage(settingsStorage, DEFAULT_SETTINGS);
   return (
     <>
       <p>{t('tips.intro')}</p>
@@ -399,15 +401,7 @@ function TipsStep() {
       <SettingsCard>
         <BrowserFeaturesRow />
       </SettingsCard>
-      <SettingsCard>
-        <SettingsRow label={t('welcome.help')} description={t('welcome.helpHint')}>
-          <Switch
-            aria-label={t('welcome.help')}
-            checked={settings.analyticsStats}
-            onChange={on => void settingsStorage.set(s => ({ ...s, analyticsStats: on }))}
-          />
-        </SettingsRow>
-      </SettingsCard>
+      <Notice>Prototype telemetry is disabled. Questionnaire content goes to the model provider you select.</Notice>
     </>
   );
 }

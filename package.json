@@ -1,12 +1,12 @@
 {
-  "name": "nanobrowser",
-  "version": "0.3.0",
+  "name": "impact-engines-designer",
+  "version": "0.1.0",
   "private": true,
-  "description": "AI web automation Chrome extension",
+  "description": "Impact Engines prototype assistant for Survey Solutions Designer",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nanobrowser/nanobrowser.git"
+    "url": "https://github.com/lbruce-wq/impact-engines-designer.git"
   },
   "type": "module",
   "scripts": {
@@ -22,7 +22,8 @@
     "autorun": "node fixtures/autorun.mjs",
     "install-chrome": "node fixtures/chrome.mjs install",
     "clean-chrome": "node fixtures/chrome.mjs clean",
-    "clean": "rimraf dist dist-zip .wxt .output"
+    "clean": "rimraf dist dist-zip .wxt .output",
+    "prepare-notices": "node scripts/prepare-prototype-assets.mjs"
   },
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "5.0.123",
@@ -81,5 +82,6 @@
     "overrides": {
       "postcss-selector-parser": "^7.1.6"
     }
-  }
+  },
+  "x-impact-engines-modification": "Modified by Impact Engines, 19 November 2026; see NOTICE and MODIFICATIONS.md"
 }

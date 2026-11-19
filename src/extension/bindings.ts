@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // TabScope: which conversation each tab belongs to, how it came to be there, and each conversation's tab group. The
 // panel's address carries nothing: the worker keeps the map, in storage.session, since tab IDs do not outlive the
 // browser session. Grouping needs no permission; the group's title and colour need tabGroups, which is optional.
@@ -210,7 +211,7 @@ export class TabScope {
       await chrome.tabGroups
         .update(group.groupId, {
           color: colorOf(conversationId),
-          title: `${PREFIX[status] ?? ''}Nanobrowser · ${short || 'chat'}`,
+          title: `${PREFIX[status] ?? ''}Impact Engines Designer · ${short || 'chat'}`,
         })
         .catch(() => undefined);
     }
@@ -264,7 +265,7 @@ export class TabScope {
         // Without the tabGroups permission the group keeps no title and Chrome's default colour.
         if (chrome.tabGroups) {
           await chrome.tabGroups
-            .update(groupId, { color: colorOf(conversationId), title: 'Nanobrowser' })
+            .update(groupId, { color: colorOf(conversationId), title: 'Impact Engines Designer' })
             .catch(() => undefined);
         }
         state.groups[conversationId] = { groupId, windowId: tab.windowId };

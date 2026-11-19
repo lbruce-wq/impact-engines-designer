@@ -1,0 +1,120 @@
+/* Copyright 2026 Impact Engines. Brand kit Edition 2.0; original supplied wordmarks are used unchanged. */
+@font-face {
+  font-family: Inter;
+  src: url('/brand/Inter-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('/brand/Inter-Italic-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+:root {
+  --nb-canvas: 255 255 255;
+  --nb-bg: 255 255 255;
+  --nb-fg: 51 51 51;
+  --nb-muted: 88 102 114;
+  --nb-border: 199 209 215;
+  --nb-surface: 236 239 241;
+  --nb-accent: 45 62 80;
+  --nb-accent-strong: 34 49 64;
+  --nb-sky: 168 218 220;
+  --nb-link: 45 62 80;
+  --nb-auto: 153 81 0;
+  --nb-shadow: 45 62 80;
+}
+.dark {
+  --nb-canvas: 25 36 47;
+  --nb-bg: 34 48 62;
+  --nb-fg: 247 248 249;
+  --nb-muted: 192 205 213;
+  --nb-border: 79 99 115;
+  --nb-surface: 45 62 80;
+  --nb-accent: 168 218 220;
+  --nb-accent-strong: 198 233 234;
+  --nb-sky: 168 218 220;
+  --nb-link: 168 218 220;
+  --nb-auto: 255 166 43;
+  --nb-shadow: 8 15 22;
+}
+body {
+  font-family: Inter, Arial, sans-serif;
+}
+h1,
+h2,
+h3 {
+  color: rgb(var(--nb-link));
+}
+.nb-answer {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.nb-wave,
+.nb-start,
+.dark .nb-wave,
+.dark .nb-start,
+.dark .nb-field {
+  background: rgb(var(--nb-canvas));
+}
+.ie-panel-header,
+.ie-brand-header {
+  background: #2d3e50;
+  color: white;
+}
+.ie-panel-header button {
+  min-width: 36px;
+  min-height: 40px;
+  color: white;
+}
+.ie-panel-header button:hover {
+  background: #42576b;
+  color: white;
+}
+.ie-panel-header :focus-visible {
+  outline-color: #ffa62b;
+}
+.ie-brand-header h1 {
+  color: white;
+}
+.ie-product-strip {
+  background: rgb(var(--nb-surface));
+  border-bottom: 1px solid rgb(var(--nb-border));
+}
+.ie-prototype-badge {
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #e8d8c0;
+  color: #2d3e50;
+  font-size: 11px;
+}
+.ie-primary,
+button[aria-label='Send'] {
+  background: #ffa62b;
+  color: #2d3e50;
+  border: 1px solid #2d3e50;
+}
+.ie-primary:hover,
+button[aria-label='Send']:hover {
+  background: #f4a024;
+  color: #2d3e50;
+}
+.ie-primary {
+  min-height: 44px;
+}
+.dark .bg-nb-accent.text-white {
+  color: #2d3e50;
+}
+button,
+input,
+select,
+textarea {
+  border-radius: 6px;
+}
+.nb-markdown a {
+  text-underline-offset: 3px;
+}

@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // Attention: when a run needs the user, or finishes, while no panel of its conversation is in view, a system
 // notification says so. Its text is the extension's own words and a site the extension read from the tab; never page or
 // model text. A click brings the run's tab to the front. Notifications need a permission the user may not have allowed
@@ -8,12 +9,12 @@ import type { OpenPrompt } from '@src/ui/protocol';
 const tabOfNotification = new Map<string, number>();
 
 const NEEDS: Record<string, (site: string) => string> = {
-  'write-card': site => `Nanobrowser asks before it changes something on ${site}.`,
-  handover: site => `Nanobrowser needs you: a step on ${site} is yours to do.`,
-  'ask-takeover': site => `Nanobrowser needs you to do a step on ${site}.`,
-  'ask-input': () => 'Nanobrowser has a question for you.',
-  'save-file': () => 'Nanobrowser asks before it saves a file.',
-  confirm: () => 'Nanobrowser has a question for you.',
+  'write-card': site => `Impact Engines Designer asks before it changes something on ${site}.`,
+  handover: site => `Impact Engines Designer needs you: a step on ${site} is yours to do.`,
+  'ask-takeover': site => `Impact Engines Designer needs you to do a step on ${site}.`,
+  'ask-input': () => 'Impact Engines Designer has a question for you.',
+  'save-file': () => 'Impact Engines Designer asks before it saves a file.',
+  confirm: () => 'Impact Engines Designer has a question for you.',
 };
 
 async function siteOfTab(tabId: number | undefined): Promise<string> {
@@ -31,7 +32,7 @@ export async function notifyNeeds(prompt: OpenPrompt, fallbackTab: number | unde
 export async function notifyFinished(conversationId: string, ok: boolean, tabId: number | undefined): Promise<void> {
   await show(
     `done-${conversationId}`,
-    ok ? 'Nanobrowser finished the task.' : 'Nanobrowser stopped before finishing.',
+    ok ? 'Impact Engines Designer finished the task.' : 'Impact Engines Designer stopped before finishing.',
     tabId,
   );
 }
@@ -40,7 +41,12 @@ async function show(id: string, message: string, tabId: number | undefined): Pro
   if (!globalThis.chrome?.notifications) return;
   if (tabId !== undefined) tabOfNotification.set(id, tabId);
   await chrome.notifications
-    .create(id, { type: 'basic', iconUrl: chrome.runtime.getURL('/icon-128.png'), title: 'Nanobrowser', message })
+    .create(id, {
+      type: 'basic',
+      iconUrl: chrome.runtime.getURL('/icon-128.png'),
+      title: 'Impact Engines Designer',
+      message,
+    })
     .catch(() => undefined);
 }
 

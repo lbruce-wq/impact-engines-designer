@@ -1,7 +1,12 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The system prompt. Short and stable, so the prompt prefix stays cached:
 // the page header is the only part of a request that changes every turn.
 import { CUSTOM_INSTRUCTIONS_MAX } from '@src/store/types';
+import { DESIGNER_INSTRUCTIONS } from '@src/designer/instructions';
+import { SHARED_PROMPT_BOUNDARY } from '@src/llm/prompt-cache';
 export interface PromptOptions {
+  /** Browser-engine harnesses can omit product expertise when testing deliberately tiny context windows. */
+  includeDesigner?: boolean;
   /** Answer in this language; 'auto' follows the user's message. */
   responseLanguage?: string;
   /** The names of the tools the run has: only those are described. */
@@ -38,13 +43,15 @@ function languageRule(responseLanguage?: string): string {
 
 export function chatSystemPrompt(options: PromptOptions = {}): string {
   return [
-    "You are Nanobrowser, an assistant that works in the user's browser, in a side panel beside the page.",
+    "You are the Impact Engines Designer assistant, working beside Survey Solutions Designer in the user's browser.",
     'Answer clearly and briefly. Use Markdown where it helps.',
+    DESIGNER_INSTRUCTIONS,
+    SHARED_PROMPT_BOUNDARY,
     languageRule(options.responseLanguage),
   ].join('\n');
 }
 
-const ROLE = `You are Nanobrowser, an agent that works in the user's own Chrome, in the tabs of this conversation (its tab group). You answer questions about pages and carry out tasks on them with the tools.
+const ROLE = `You are the Impact Engines Designer assistant, an agent that works in the user's own Chrome, in the tabs of this conversation (its tab group). You help design, program and troubleshoot Survey Solutions questionnaires with the tools.
 
 ## How to work
 
@@ -89,14 +96,19 @@ function toolGuide(tools: string[]): string {
 
 /** The agent's prompt. */
 export function agentSystemPrompt(options: PromptOptions = {}): string {
-  const sections = [ROLE, CONTRACT, PERMISSIONS, toolGuide(options.tools ?? [])];
+  const sections = [ROLE, CONTRACT, PERMISSIONS, ...(options.includeDesigner === false ? [] : [DESIGNER_INSTRUCTIONS])];
+  // The large public guides stay byte-identical across tools, languages, custom memory and live pages.
+  const shared = sections.join('\n\n');
+  const tail = [toolGuide(options.tools ?? [])];
   const custom = options.customInstructions?.trim().slice(0, CUSTOM_INSTRUCTIONS_MAX).trim();
   if (custom) {
     // The user's own words, from Settings → Memory; no tool writes them.
-    sections.push(
+    tail.push(
       `## The user's custom instructions\n\nThe user wrote these in Settings. They apply to every conversation.\n\n<custom-instructions>\n${custom}\n</custom-instructions>`,
     );
   }
-  sections.push(`## Language\n\n${languageRule(options.responseLanguage)}`);
-  return sections.join('\n\n');
+  tail.push(`## Language\n\n${languageRule(options.responseLanguage)}`);
+  return options.includeDesigner === false
+    ? [...sections, ...tail].join('\n\n')
+    : shared + SHARED_PROMPT_BOUNDARY + tail.join('\n\n');
 }

@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The agent loop, shaped like pi's runLoop: turns of one model call and its tool batch, with all browser policy in six
 // hooks. The worker owns the run; Chrome is reached through the ports.
 import { cutText, siteOf } from '@src/browser-control';
@@ -40,7 +41,7 @@ export const REASONING_DROPPED = 'This model did not take the reasoning setting;
 /** The notice when the model refused images. */
 export const IMAGES_DROPPED = 'This model did not take images; continuing without them.';
 /** The notice when the user pressed Stop. */
-export const STOPPED_BY_USER = 'Stopped · What should Nanobrowser do instead?';
+export const STOPPED_BY_USER = 'Stopped · What should Impact Engines Designer do instead?';
 /** The note the model reads after Stop, so the next run knows the last one was cut short. */
 export const STOPPED_NOTE =
   'the user stopped the run; the page may have changed. Follow their next message, and observe before acting.';

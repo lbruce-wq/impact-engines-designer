@@ -1,0 +1,27 @@
+Impact Engines Designer — prototype
+Copyright 2026 Impact Engines for original additions and modifications.
+
+This product is derived from NanoBrowser:
+https://github.com/nanobrowser/nanobrowser
+Upstream revision: 291d5f3927ee4c4795b0ea4588f2b404838b3ff6
+NanoBrowser and its contributors retain copyright in their work, licensed under
+the Apache License, Version 2.0. The original LICENSE is retained unchanged.
+
+Modified by Impact Engines on 19 November 2026: application branding and UI,
+Survey Solutions expert/navigation instructions and prompt assembly, starter
+tasks, prototype documentation, telemetry defaults/destination, rating prompts,
+website links and uninstall behavior. See MODIFICATIONS.md for changed files.
+
+Survey Solutions AI Agent Prompt
+https://github.com/lbruce-wq/survey-solutions-ai-agent-prompt
+Copyright (c) 2026 Impact Engines. MIT License; full text is bundled in
+licenses/survey-solutions-prompt-MIT.txt. The master prompt is retained verbatim;
+feature-specific reconciliation is supplied separately in instructions.ts.
+
+Inter font: bundled under its SIL Open Font License, included in licenses/Inter-OFL.txt.
+Full installed third-party licence and notice texts are bundled in
+licenses/third-party-licenses.txt. See Settings → About for source links.
+
+Impact Engines brand artwork is supplied by Impact Engines. The Apache licence
+does not grant rights to Impact Engines names, trademarks or logo artwork.
+This prototype is not affiliated with or endorsed by the World Bank or NanoBrowser.

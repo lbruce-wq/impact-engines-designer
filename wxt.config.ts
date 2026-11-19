@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { defineConfig } from 'wxt';
@@ -25,18 +26,19 @@ export default defineConfig({
     description: '__MSG_extDescription__',
     default_locale: 'en',
     minimum_chrome_version: '125',
+    homepage_url: 'https://impactengines.ai/',
     host_permissions: ['<all_urls>'],
     ...permissionLists(productPermissions ? 'product' : 'autorun'),
     action: { default_icon: 'icon-32.png', default_title: '__MSG_actionTitle__' },
     icons: { 128: 'icon-128.png' },
     commands: {
-      'open-panel': { suggested_key: { default: 'Alt+Shift+N' }, description: '__MSG_commandOpenPanel__' },
+      'open-panel': { suggested_key: { default: 'Alt+Shift+I' }, description: '__MSG_commandOpenPanel__' },
       'open-test-panel': { description: 'Open the browser control test panel (developers)' },
     },
   },
   // `pnpm zip` packs dist/ into dist-zip/, outside the folder Chrome loads.
   zip: {
-    artifactTemplate: '../dist-zip/{{name}}-{{version}}.zip',
+    artifactTemplate: '../dist-zip/impact-engines-designer-{{version}}.zip',
     exclude: ['**/*.map'],
   },
   hooks: {

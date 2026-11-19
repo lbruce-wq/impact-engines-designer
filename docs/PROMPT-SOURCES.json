@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "file": "src/designer/designer-navigation.md",
+    "version": "0.1",
+    "observedOn": "2026-11-19",
+    "sha256": "a31175f4483e2f9691929300c56f80ab3ae196f2b4ea3e0491a03bff12091d52"
+  },
+  "expert": {
+    "file": "src/designer/survey-solutions-master.md",
+    "source": "https://github.com/lbruce-wq/survey-solutions-ai-agent-prompt",
+    "license": "MIT",
+    "sha256": "a38146225367f053284434cd435eeef051b0eeb37504aa84ff964ae96136ba84"
+  },
+  "upstream": {
+    "repository": "https://github.com/nanobrowser/nanobrowser",
+    "commit": "291d5f3927ee4c4795b0ea4588f2b404838b3ff6"
+  }
+}

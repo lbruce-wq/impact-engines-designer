@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // Settings, provider configurations and API keys in chrome.storage.local. Keys sit under a key of their own: they
 // are never exported and never logged.
 import type { ProviderKind } from '../llm/providers';
@@ -54,8 +55,8 @@ export const DEFAULT_SETTINGS: Settings = {
   autoNoticeShown: false,
   agentTabsOnEnd: 'ask',
   onboarded: false,
-  analyticsPing: true,
-  analyticsStats: true,
+  analyticsPing: false,
+  analyticsStats: false,
   pageBorder: true,
 };
 

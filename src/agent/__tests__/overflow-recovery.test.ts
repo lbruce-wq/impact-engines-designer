@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19: isolate browser-engine stress tests from large product guides.
 // Steps 3 and 4 of context management and a request refused for its size, with the context-set cases that need them.
 import 'fake-indexeddb/auto';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -72,7 +73,7 @@ function loopFor(
     conversationId,
     runId: 'r',
     model,
-    system: agentSystemPrompt({ tools: tools.map(t => t.name) }),
+    system: agentSystemPrompt({ includeDesigner: false, tools: tools.map(t => t.name) }),
     tools,
     layer,
     host: new FakeHost(),

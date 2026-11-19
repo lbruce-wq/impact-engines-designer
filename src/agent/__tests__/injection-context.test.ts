@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19: isolate browser-engine stress tests from large product guides.
 // The context set: after a restart every request holds the system prompt and every user message word for word; the run
 // stops, sending nothing, when they do not fit; and a note is never counted as a user message.
 import 'fake-indexeddb/auto';
@@ -23,7 +24,7 @@ afterEach(async () => {
   globalThis.indexedDB = new IDBFactory();
 });
 
-const SYSTEM = agentSystemPrompt({ tools: ['snapshot', 'read', 'click', 'done'] });
+const SYSTEM = agentSystemPrompt({ includeDesigner: false, tools: ['snapshot', 'read', 'click', 'done'] });
 const USER_1 = 'Find a laptop under 1000 EUR.\nOnly use my personal account, never the work one.';
 const USER_2 = 'Also check the warranty — and do not buy anything.';
 const done = { toolCalls: [{ name: 'done', input: { outcome: 'success', summary: 'ok' }, id: 'd' }] };

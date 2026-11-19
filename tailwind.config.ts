@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 import type { Config } from 'tailwindcss';
 
 const token = (name: string) => `rgb(var(--nb-${name}) / <alpha-value>)`;
@@ -22,7 +23,10 @@ export default {
       },
       // System fonts only, as in the dsh.directory site.
       fontFamily: {
+        serif: ['Inter', 'Arial', 'sans-serif'],
         sans: [
+          'Inter',
+          'Arial',
           'ui-sans-serif',
           'system-ui',
           'sans-serif',

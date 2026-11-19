@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The settings page. Each section reads and writes chrome.storage directly.
 import { Fragment, useEffect, useState } from 'react';
 import { DEFAULT_SETTINGS, settingsStorage } from '@src/store/settings';
@@ -54,9 +55,9 @@ export function App() {
     // that list.
     <div className="nb-field min-h-full">
       <div className="mx-auto flex min-h-full max-w-6xl flex-col px-3 py-5 sm:px-6 sm:py-8">
-        <header className="mb-6 sm:mb-10 sm:px-3">
+        <header className="ie-brand-header mb-6 rounded-lg p-5 sm:mb-10">
           <h1 className="flex flex-wrap items-center gap-x-3 gap-y-2 font-serif text-xl font-normal leading-tight sm:text-[28px]">
-            <Logo height={28} />
+            <Logo slate height={40} />
             <span>{t('settings.title')}</span>
           </h1>
         </header>

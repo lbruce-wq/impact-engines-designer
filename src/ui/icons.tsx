@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // Line icons for the panel and the settings page: 24-unit strokes in the text colour, hidden from assistive
 // technology (the button around each one carries the label). Drawn for this project.
 import type { ReactNode, SVGProps } from 'react';
@@ -217,12 +218,20 @@ export function LogoMark({ size = 20, className = '' }: { size?: number; classNa
   return <img src="/icon-128.png" alt="" width={size} height={size} className={`shrink-0 ${className}`} />;
 }
 
-/** The brand's horizontal logo: the mark and "Nanobrowser". */
-export function Logo({ height = 28, className = '' }: { height?: number; className?: string }) {
+/** Supplied Impact Engines wordmark; preserve its artwork, padding and background. */
+export function Logo({
+  height = 36,
+  className = '',
+  slate = false,
+}: {
+  height?: number;
+  className?: string;
+  slate?: boolean;
+}) {
   return (
     <img
-      src="/brand/logo-horizontal.png"
-      alt="Nanobrowser"
+      src={slate ? '/brand/impact-engines-on-slate.png' : '/brand/impact-engines-on-white.png'}
+      alt="Impact Engines"
       height={height}
       style={{ height, width: 'auto' }}
       className={className}

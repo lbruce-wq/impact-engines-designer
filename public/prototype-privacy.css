@@ -1,0 +1,45 @@
+/* Copyright 2026 Impact Engines. */
+@font-face {
+  font-family: Inter;
+  src: url('/brand/Inter-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+body {
+  margin: 0;
+  font:
+    16px/1.6 Inter,
+    Arial,
+    sans-serif;
+  color: #333333;
+  background: white;
+}
+header {
+  background: #2d3e50;
+  padding: 24px max(24px, calc((100% - 800px) / 2));
+}
+header img {
+  width: 220px;
+  height: auto;
+}
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+h1,
+h2,
+a {
+  color: #2d3e50;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+h2 {
+  margin-top: 32px;
+  font-size: 21px;
+}
+a {
+  text-underline-offset: 3px;
+}

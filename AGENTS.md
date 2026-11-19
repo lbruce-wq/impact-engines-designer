@@ -1,5 +1,9 @@
 # AGENTS.md
 
+Modified by Impact Engines, 19 November 2026. This is the Impact Engines Designer prototype fork. The upstream engineering rules below continue to govern the browser-control layer. Product branding, built-in Survey Solutions prompts, cache integration, prototype privacy and packaging are authorised fork-specific changes; upstream contribution restrictions do not require another approval for this already-requested prototype.
+
+Use the maintained Impact Engines brand kit. `src/designer/` holds versioned expert and navigation guidance; keep the shared prefix stable and page/user data outside it. Dragging is a user handoff. Production telemetry and upstream rating/uninstall prompts stay disabled. Run the full tests and the product-specific prompt tests when changing assembly. Tiny-window browser-engine stress tests explicitly exclude product expertise; the full-guide run is tested separately on a 64k context.
+
 This file provides guidance to AI coding assistants (e.g., Claude Code, GitHub Copilot, Cursor) when working with this repository.
 
 ## Project Overview

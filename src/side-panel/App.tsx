@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The side panel. A view: it draws the worker's events and sends commands; it holds no state a run depends on, and it
 // never reads the conversation stores.
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState, useSyncExternalStore } from 'react';
@@ -32,7 +33,7 @@ import { installTestHook } from './test-hook';
 import type { SavedShortcut } from '@src/store/shortcuts';
 import { useShortcuts } from '@src/ui/shortcuts';
 import { AutoNotice } from '@src/ui/auto-notice';
-import { HistoryIcon, LogoMark, NewChatIcon, SettingsIcon } from '@src/ui/icons';
+import { HistoryIcon, Logo, LogoMark, NewChatIcon, SettingsIcon } from '@src/ui/icons';
 import { websiteUrl } from '@src/ui/links';
 
 const NO_PROVIDERS: ProviderConfig[] = [];
@@ -360,8 +361,7 @@ export function App() {
   return (
     <div className={`flex h-full flex-col${empty && state.loaded ? ' nb-start' : ''}`}>
       {/* The header has no field of its own, so it is part of the panel; a line under it only above a conversation. */}
-      <header
-        className={`flex items-center gap-1 border-b px-2 py-1.5 ${empty && state.loaded ? 'border-transparent' : 'border-nb-border/60'}`}>
+      <header className="ie-panel-header flex items-center gap-1 px-3 py-4">
         {/* The mark opens the website in a new tab. */}
         <a
           href={websiteUrl('/', 'side-panel')}
@@ -370,7 +370,7 @@ export function App() {
           title={t('panel.website')}
           aria-label={t('panel.website')}
           className="ml-1 flex shrink-0 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-nb-accent">
-          <LogoMark size={20} />
+          <Logo slate height={36} />
         </a>
         {/* The title is for screen readers only; the header shows the mark and three buttons. */}
         <h1 className="sr-only">{conversation?.title || t('panel.newChat')}</h1>
@@ -390,6 +390,10 @@ export function App() {
           <SettingsIcon />
         </IconButton>
       </header>
+      <div className="ie-product-strip flex items-center justify-between gap-2 px-4 py-2 text-xs">
+        <span className="font-semibold">Survey Solutions Designer</span>
+        <span className="ie-prototype-badge">Prototype</span>
+      </div>
       {confirmNewChat ? (
         <div className="flex items-center gap-2 border-b border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100">
           <span className="flex-1">{t('panel.newChatRunning')}</span>
@@ -425,12 +429,17 @@ export function App() {
       ) : (
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
           <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
-            {state.loaded ? <LogoMark size={40} /> : null}
+            {state.loaded ? <LogoMark size={48} /> : null}
             {state.loaded ? (
               <p className="max-w-xs text-[24px] font-normal leading-tight text-nb-fg">{t('panel.empty')}</p>
             ) : (
               <p className="text-sm text-nb-muted">{t('panel.loading')}</p>
             )}
+            {state.loaded ? (
+              <p className="max-w-xs text-sm leading-relaxed text-nb-muted">
+                Open your questionnaire, select an item, and describe the change you need.
+              </p>
+            ) : null}
           </div>
           {/* With no model, the no-model card above the composer takes the quick start's place. */}
           {/* The quick start stays hidden while the What's new card shows. */}

@@ -1,4 +1,5 @@
-// "Ask Nanobrowser about this", the only context-menu item: on a selection, it opens the side panel on that tab (a menu
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
+// "Ask Impact Engines Designer about this", the only context-menu item: on a selection, it opens the side panel on that tab (a menu
 // click is a user gesture) and puts the selection in the composer as a quote chip.
 import { PANEL_PATH } from './panel';
 import type { RunManager } from './run-manager';
@@ -9,7 +10,7 @@ export function listenForSelections(manager: RunManager): void {
   chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.removeAll(() => {
       // Chrome's menus follow Chrome's language, so the title comes from the extension's locales.
-      const title = chrome.i18n.getMessage('menuAskAboutSelection') || 'Ask Nanobrowser about this';
+      const title = chrome.i18n.getMessage('menuAskAboutSelection') || 'Ask Impact Engines Designer about this';
       chrome.contextMenus.create({ id: MENU_ID, title, contexts: ['selection'] });
     });
   });

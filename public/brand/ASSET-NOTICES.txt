@@ -1,0 +1,16 @@
+Impact Engines prototype assets — 19 November 2026
+
+impact-engines-on-slate.png and impact-engines-on-white.png are supplied Impact
+Engines wordmark originals. Their artwork, padding, colours and proportions are
+unchanged. Brand artwork and trademarks remain the property of Impact Engines;
+they are not granted by NanoBrowser's Apache licence.
+
+Inter-Variable.ttf and Inter-Italic-Variable.ttf are supplied Inter originals;
+their SIL Open Font License is bundled at ../licenses/Inter-OFL.txt.
+
+The toolbar icons ../icon-32.png and ../icon-128.png were replaced by Impact
+Engines with an original survey-page glyph; source is in scripts/create-product-icons.ps1.
+They do not recreate or modify the Impact Engines wordmark.
+
+Unused original NanoBrowser artwork is retained in the source and package. The
+prototype uses the supplied Impact Engines wordmarks and product glyph instead.

@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // One streaming model call per turn, with no automatic tool execution: the loop runs the tools itself. Retries are
 // ours: rate limits, server errors and network failures get exponential backoff with jitter, honour Retry-After, and
 // stop after 3 attempts. Once text has streamed, an error ends the turn with a message rather than retrying (pi-ai's
@@ -10,6 +11,7 @@ import { errorText, getApiCallStatusCode, isRetryable, retryAfterMs, unwrapError
 import { MIN_OUTPUT_LIMIT, OUTPUT_LIMIT_NAMES } from './catalogue';
 import { isContextOverflow, statedContextLimit } from './overflow';
 import { withSlot } from './limiter';
+import { cacheableSystem } from './prompt-cache';
 
 export interface TokenUsage {
   input: number;
@@ -229,7 +231,7 @@ async function streamTurnNow(request: TurnRequest): Promise<TurnResult> {
     try {
       const result = streamText({
         model: request.chat.model,
-        system: request.system,
+        system: cacheableSystem(request.system, request.chat.spec.kind),
         messages,
         tools,
         toolChoice: tools ? (request.toolChoice ?? 'auto') : undefined,

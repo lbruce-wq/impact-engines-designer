@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The card that asks the user to rate Nanobrowser in the web store, right after a run finishes well in this panel, once
 // they use it often (the rule is in src/store/rating.ts). Leave a rating opens the store's page in a new tab; Maybe
 // later closes it until a month later. A new run the user starts while it shows counts as Maybe later.
@@ -14,6 +15,7 @@ import {
 import { useStorage } from '@src/ui/hooks';
 import { LogoMark } from '@src/ui/icons';
 import { t } from '@src/ui/i18n';
+import { PRODUCT } from '@src/designer/product';
 
 function answer(choice: 'rate' | 'later'): void {
   void ratingAnswerStorage.set(a => answerRating(a, choice, new Date()));
@@ -34,7 +36,8 @@ export function useRatingCard(
   if (shown.conversationId !== conversationId) setShown({ conversationId, at: Date.now() });
   const usage = useStorage(ratingStorage, NO_USAGE);
   const choice = useStorage(ratingAnswerStorage, NO_ANSWER);
-  if (active || waiting || shown.conversationId !== conversationId) return false;
+  // The prototype has no store listing and must not solicit ratings for upstream's listing.
+  if (!PRODUCT.storeRatings || active || waiting || shown.conversationId !== conversationId) return false;
   const since = Math.max(shown.at, startedAt ? Date.parse(startedAt) : 0);
   return ratingShowsIn(usage, choice, conversationId, since, new Date());
 }

@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19: reflect product UI identity.
 // The effort in the loop, with the scripted model: what each turn sends and records, the fallback when a server refuses
 // the option, the summary call at None, and a reply that was all reasoning.
 import 'fake-indexeddb/auto';

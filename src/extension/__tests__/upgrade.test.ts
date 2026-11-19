@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 import 'fake-indexeddb/auto';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { IDBFactory } from 'fake-indexeddb';
@@ -208,7 +209,7 @@ describe('the move', () => {
     expect(data['nb.whatsNew']).toEqual({ version: '0.3', dismissed: false });
 
     const names = (await listShortcuts()).map(s => s.name).sort();
-    expect(names).toEqual(['daily-news-digest', 'explore-ai-papers', 'prompt-1', 'summarize']);
+    expect(names).toEqual(['daily-news-digest', 'explore-ai-papers', 'prompt-1', 'validation']);
 
     const left = Object.keys(data)
       .filter(k => !k.startsWith('nb.'))

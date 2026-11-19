@@ -1,9 +1,11 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The microphone page: a side panel cannot show the microphone prompt, so the first press of the microphone button
 // opens this page, which asks with getUserMedia and closes once access is given. The panel tries again when it closes.
 // Ported from the current Nanobrowser's permission page.
 import { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@src/ui/index.css';
+import '@src/ui/impact-engines.css';
 import { DEFAULT_SETTINGS, settingsStorage } from '@src/store/settings';
 import { setLanguage, t, useLanguage } from '@src/ui/i18n';
 import { applyTheme, watchSystemTheme } from '@src/ui/theme';

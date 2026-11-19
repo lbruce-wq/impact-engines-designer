@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // The transcript: the user's messages, answers as sanitised Markdown, notices. The replies of one run share one
 // activity block. Under a user's message, on hover: its time, Copy, Edit and Restart from here. Under an answer,
 // always: Copy and its time. Retry after an error. A new turn keeps the question in view; auto-scroll resumes only at
@@ -446,7 +447,24 @@ function RunView({
           </div>
         ) : null,
       )}
-      {/* Model, tokens and cost stay in the conversation's record and are not shown for now. */}
+      {settled && replies.some(r => r.usage) ? (
+        <details className="text-xs text-nb-muted">
+          <summary className="cursor-pointer py-1">Model usage</summary>
+          <dl className="mt-1 grid grid-cols-2 gap-x-4 gap-y-1 tabular-nums">
+            <dt>Input tokens</dt>
+            <dd>{replies.reduce((n, r) => n + (r.usage?.input ?? 0), 0).toLocaleString()}</dd>
+            <dt>Cache read tokens</dt>
+            <dd>{replies.reduce((n, r) => n + (r.usage?.cacheRead ?? 0), 0).toLocaleString()}</dd>
+            <dt>Cache write tokens</dt>
+            <dd>{replies.reduce((n, r) => n + (r.usage?.cacheWrite ?? 0), 0).toLocaleString()}</dd>
+            <dt>Output tokens</dt>
+            <dd>{replies.reduce((n, r) => n + (r.usage?.output ?? 0), 0).toLocaleString()}</dd>
+          </dl>
+          <p className="mt-1">
+            Provider-reported usage. Cache availability and pricing depend on the model; zero can also mean unreported.
+          </p>
+        </details>
+      ) : null}
       {settled && streaming?.id !== last.id ? (
         <div className="-ml-1 flex items-center gap-0.5">
           {answer ? <CopyButton text={answer} /> : null}

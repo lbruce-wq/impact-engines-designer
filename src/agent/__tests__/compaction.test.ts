@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19: isolate browser-engine stress tests from large product guides.
 import 'fake-indexeddb/auto';
 import { afterEach, describe, expect, it } from 'vitest';
 import { IDBFactory } from 'fake-indexeddb';
@@ -211,7 +212,7 @@ function longRun(
     conversationId,
     runId: 'r',
     model: { ref: { providerId: 'p', model: 'm' }, chat: scripted.chat(), profile, reasoning: 'none' },
-    system: agentSystemPrompt({ tools: ['snapshot', 'read', 'click', 'done'] }),
+    system: agentSystemPrompt({ includeDesigner: false, tools: ['snapshot', 'read', 'click', 'done'] }),
     // A short tool list, as for a small model: on 16k the full list alone is about 7k tokens.
     tools: toolsForRun({ disabled: SMALL_MODEL_OFF, vision: false }),
     layer,

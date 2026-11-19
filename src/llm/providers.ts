@@ -1,3 +1,4 @@
+// Modified by Impact Engines, 2026-11-19. See NOTICE for attribution and modification scope.
 // Provider factories, ported from the current Nanobrowser's src/background/llm/providers.ts and reduced to the
 // providers of the first release. The loop runs tools itself, so a model handle is only a model, its call settings and
 // its provider options.
@@ -6,6 +7,7 @@ import { createAnthropic } from '@ai-sdk/anthropic';
 import { createGoogle } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
 import type { LanguageModel } from 'ai';
+import { PROMPT_CACHE_KEY } from './prompt-cache';
 
 export type ProviderKind =
   'anthropic' | 'openai' | 'gemini' | 'openai-compatible' | 'ollama' | 'lmstudio' | 'openrouter' | 'bedrock';
@@ -176,14 +178,14 @@ export function createModel(spec: ModelSpec, options: CreateModelOptions = {}): 
       return { spec, model: google(modelName) };
     }
     case 'openai': {
-      // The Responses API: GPT-6 models refuse function tools with reasoning on chat completions. Nothing is stored
-      // at OpenAI; each turn sends the whole history, and tool calls go back without item ids. The SDK detects the
+      // The Responses API: GPT-6 models refuse function tools with reasoning on chat completions. Response storage is
+      // disabled; each turn sends the whole history, and tool calls go back without item ids. Prompt caching remains eligible. The SDK detects the
       // reasoning models itself.
       const openai = createOpenAI({ apiKey, ...(spec.baseUrl ? { baseURL: spec.baseUrl } : {}), fetch });
       return {
         spec,
         model: openai.responses(modelName),
-        providerOptions: { openai: { strictJsonSchema: false, store: false } },
+        providerOptions: { openai: { strictJsonSchema: false, store: false, promptCacheKey: PROMPT_CACHE_KEY } },
       };
     }
     case 'bedrock': {

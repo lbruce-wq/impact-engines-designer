@@ -1,17 +1,20 @@
 {
   "extName": {
-    "message": "Nanobrowser"
+    "message": "Impact Engines Designer"
   },
   "extDescription": {
-    "message": "在你的瀏覽器中工作的 AI 代理程式，位於頁面旁的側邊面板中"
+    "message": "用於 Survey Solutions Designer 的 Impact Engines 原型助理。"
   },
   "actionTitle": {
-    "message": "開啟 Nanobrowser"
+    "message": "開啟 Impact Engines Designer"
   },
   "commandOpenPanel": {
-    "message": "開啟 Nanobrowser 側邊面板"
+    "message": "開啟 Impact Engines Designer 側邊面板"
   },
   "menuAskAboutSelection": {
-    "message": "向 Nanobrowser 詢問這段內容"
+    "message": "向 Impact Engines Designer 詢問這段內容"
+  },
+  "impactEnginesModification": {
+    "message": "Modified by Impact Engines, 19 November 2026."
   }
 }
