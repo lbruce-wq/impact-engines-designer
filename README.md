@@ -8,7 +8,7 @@ A first beta assistant for Survey Solutions Designer, built on [NanoBrowser](htt
 
 The extension uses your selected model provider and your logged-in browser. It can inspect questions, explain logic, propose and apply edits, use roster context menus, and check compilation results. Dragging is handed back to you. Real LLM performance is still being evaluated; use a disposable questionnaire copy.
 
-![Survey Solutions AI Plugin panel](docs/screenshots/panel-light.png)
+![Survey Solutions AI Plugin creating a household list and roster in Survey Solutions Designer](docs/screenshots/designer-in-action.png)
 
 ## Install the beta
 
